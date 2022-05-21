@@ -1,0 +1,140 @@
+@import 'config';
+@import 'mixins';
+@import 'mid-section';
+@import 'utilities.scss';
+
+html{
+    font-size: 62.5%;
+}
+body{
+    background-color: var(--Very-light-gray);
+    padding:4rem 0;
+}
+.main-container{
+    max-width: 1300px;
+    margin: auto;
+    // border: 1px solid red;
+}
+.wrapper{
+    width: 60%;
+    margin: auto;
+    // border: 1px solid green;
+}
+.comment{
+    width: 100%;
+    margin-top: 2rem;
+    padding: 2rem 1.3rem;
+    background-color: var(--White);
+    border-radius: .7rem;
+    @include flex-space-between;
+    height: 19rem;
+}
+.vote-wrapper{
+    padding: 1rem;
+    @include flex-space-between;
+    @include flex-column;
+    height: 100%;
+    background-color: var(--Very-light-gray);
+    border-radius: .8rem;
+    img{
+        cursor: pointer;
+    }
+
+    p{
+        font-size: 1.8rem;
+    }
+}
+.comment-text{
+    @include flex-column;
+    @include flex-space-between;
+    padding: 0rem 2rem;
+    height: 90%;
+    width: 100%;
+
+    .col1{
+        @include flex-space-between;
+        align-items: flex-start;
+
+        .user-info{
+            @include flex-center;
+            
+           .user-profile{
+               width: 4.7rem;
+               cursor: pointer;
+               img{
+                   width: 100%;
+               }
+           }
+              .user-name{
+                font-size: 1.7rem;
+                font-weight: var(--fw-bl);
+                color: var(--Dark-blue);
+                padding-left: 1rem;
+              }
+        }
+
+        .reply-btn p{
+            font-size: 1.8rem;
+            font-weight: var(--fw-bl);
+            color: var(--Moderate-blue);
+            cursor: pointer;
+            span{
+                padding-left: 1rem;
+            }
+        }
+    }
+
+    .col2{
+        font-size: 1.5rem;
+        color: var(--Grayish-Blue);
+        letter-spacing: .1rem;
+        padding-top: 1rem;
+        line-height: 2.4rem;
+    }
+}
+
+// edit-btns
+
+.reply-btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    font-weight: 800;
+
+    span{
+        display: flex;
+        padding: 0rem 1rem;
+
+        p.delete{
+            color: var(--Soft-Red);
+            cursor: pointer;
+        }
+        p.edit{
+            color: var(--Moderate-blue);
+            cursor: pointer;
+        }
+
+        img{
+            padding-right: 1rem;
+            width: 2.8rem;
+        }
+    }
+}
+
+.display-none{
+    display: none;
+}
+
+.textarea{
+    width: 100%;
+    height: 10rem;
+    text-align: start;
+    font-size: 1.5rem;
+    color: var(--Grayish-Blue);
+    letter-spacing: .1rem;
+    line-height: 2.4rem;
+    resize: none;
+    border:1px solid var(--Light-grayish-blue);
+    border-radius: .5rem;
+}

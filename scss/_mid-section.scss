@@ -1,0 +1,21 @@
+.wrapper .mid-section{
+    @include flex;
+    padding-left: 2rem;
+
+    .border{
+        width: 2rem;
+        display: flex;
+        align-items: center;
+        padding: 2rem 1rem;
+        padding-bottom: 0rem;
+        padding-left: 0rem;
+
+        span{
+            width: 0.2rem;
+            background: var(--Light-gray);
+            height: 100%;
+            display: inline-block;
+            border-radius: .5rem;
+        }
+    }
+}
