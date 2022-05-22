@@ -82,7 +82,7 @@ const displayData = async () => {
             </div>
             <!-- user-info-end -->
               <div class="reply-btn">
-                <p><img src="/images/icon-reply.svg" alt="icon"><span>Reply</span></p>
+                <p><img src="./images/icon-reply.svg" alt="icon"><span>Reply</span></p>
               </div>
           </div>
               <!-- col-1 end -->
@@ -120,12 +120,12 @@ const addingBtn = async () => {
   btnContainer.classList.add("reply-btn-container");
   const span1 = document.createElement("span");
   span1.innerHTML = `
-  <img src="/images/icon-delete.svg" alt="icon">
+  <img src="./images/icon-delete.svg" alt="icon">
   <p class="delete">Delete</p>
   `;
   const span2 = document.createElement("span");
   span2.innerHTML = `
-  <img src="/images/icon-edit.svg" alt="icon">
+  <img src="./images/icon-edit.svg" alt="icon">
   <p class="edit">Edit</p>
   `;
   btnContainer.appendChild(span1);
