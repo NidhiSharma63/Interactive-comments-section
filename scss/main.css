@@ -215,14 +215,11 @@ body {
   cursor: pointer;
   font-size: 1.5rem;
   padding: 0rem;
+  display: inline;
 }
 
 .comment-text .col2 .reply-to span {
   padding-left: 1rem;
-}
-
-.comment-text .col2 .reply-to span {
-  padding: 0rem;
 }
 
 .edit-delete-btn-container {
@@ -331,5 +328,13 @@ body {
   resize: none;
   border: 1px solid var(--Light-grayish-blue);
   border-radius: .5rem;
+}
+
+.reply-text {
+  font-size: 1.5rem;
+  color: var(--Grayish-Blue);
+  letter-spacing: .1rem;
+  padding-top: 1rem;
+  line-height: 2.4rem;
 }
 /*# sourceMappingURL=main.css.map */

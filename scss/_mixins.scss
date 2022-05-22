@@ -22,3 +22,11 @@
         padding-left: 1rem;
     }
 }
+
+@mixin font-size-1{
+    font-size: 1.5rem;
+    color: var(--Grayish-Blue);
+    letter-spacing: .1rem;
+    padding-top: 1rem;
+    line-height: 2.4rem;
+}

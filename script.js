@@ -57,11 +57,10 @@ const displayData = async () => {
             </div>
             <!-- comment-text end -->
           </div>
+          <div class='reply-input display-none'></div>
     `
 
     element.replies.forEach(element => {
-
-      console.log(element);
       const reply = `
       <div class="comment" id="${element.id}">
         <!-- vote-wrapper -->
@@ -97,8 +96,7 @@ const displayData = async () => {
           <div class="col2">
               <div class="comment-text-content">
                 <p>
-                <span class="reply-to">@${element.replyingTo}</span>
-                ${element.content}
+                <span class="reply-to">@${element.replyingTo}</span> ${element.content}
                 </p>
               </div>
             </div>
@@ -106,18 +104,18 @@ const displayData = async () => {
         </div>
           <!-- comment-text end -->
       </div>
+      <div class='reply-input display-none'></div>
       `
-
-      
       midSection.innerHTML += reply;
     }); 
     wrapper.innerHTML += output;
-    const allImg = document.querySelectorAll(".reply-icon");
+    const replyBtn = document.querySelectorAll(".reply-btn");
     const plusIcon = document.querySelectorAll(".plus-icon");
     const minusIcon = document.querySelectorAll(".minus-icon");
 
     incrementVote(plusIcon);
     decrementVote(minusIcon);
+    addingReplyDiv(replyBtn);
   });
 }
 
@@ -143,6 +141,53 @@ let decrementVote = (minusIcon) =>{
     },{once: true});
   });
 };
+
+// adding reply div after each comment on click reply btn
+let addingReplyDiv = (replyBtn) =>{
+  Array.from(replyBtn).forEach((btn)=>{
+    btn.addEventListener('click',(e)=>{
+
+      const commentDiv = (e.target.parentElement.parentElement.parentElement.parentElement.parentElement);
+      const replyDiv = (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.nextElementSibling);
+      console.log(replyDiv)
+
+      const commentDivCol2 = (e.target.parentElement.parentElement.parentElement.nextElementSibling);
+      replyDiv.style.width='100%';
+      replyDiv.style.display='flex';
+      replyDiv.innerHTML=
+      `
+      <div class="profile-img">
+        <img src="./images/avatars/image-juliusomo.webp" alt="profile">
+      </div>
+      <div class="input">
+        <textarea name="" id="reply-input" cols="30" rows="5"></textarea>
+      </div>
+      <button id="send-btn">
+        send
+      </button>
+      `
+
+      const sendBtn = replyDiv.querySelector("#send-btn");
+      const inputTag = replyDiv.querySelector(".input");
+
+      sendBtn.addEventListener('click',(e)=>{
+        const textareaTag = replyDiv.querySelector("#reply-input");
+        inputTag.style.border='none';
+        const pTag = document.createElement('p');
+        pTag.classList.add('reply-text')
+        pTag.innerHTML=`${textareaTag.value}`;
+        inputTag.replaceChild(pTag,textareaTag);
+      });
+      
+      // remove div on click on col2
+      commentDivCol2.addEventListener("click",()=>{
+        replyDiv.innerHTML='';
+        replyDiv.style.display='none';
+      })
+    })
+  })
+}
+
 
 // adding btn
 const addingBtn = async () => {
@@ -172,15 +217,6 @@ const addingBtn = async () => {
   col1.appendChild(btnContainer);
 }
 
-const selectingReplyText = (editBtn) =>{
-  // selceting Txt throught dom 
-  const commentText =  editBtn.parentElement.parentElement.parentElement.nextElementSibling.querySelector(".comment-text-content");
-  const textarea = document.createElement("textarea");
-  textarea.cols = "30";
-  textarea.rows = "10";
-  const commentTextContent = commentText.querySelector("p");
-  
-}
 
 // show edit btn
 const showEditBtn = (editBtn,saveBtn) =>{
@@ -229,10 +265,14 @@ const deleteComment = async () => {
 }
 deleteComment();
 
-// adding reply
-sendBtn.addEventListener("click",()=>{
-  const userProfileImage = replyInput.parentElement.previousElementSibling.getElementsByTagName('img')[0].src;
 
+  // adding reply
+sendBtn.addEventListener("click",()=>{
+  sendBtnEvent();
+});
+
+let sendBtnEvent = () =>{
+  const userProfileImage = replyInput.parentElement.previousElementSibling.getElementsByTagName('img')[0].src;
   if(replyInput.value==='') return;
   const sendReply =  
   `
@@ -287,6 +327,5 @@ sendBtn.addEventListener("click",()=>{
   `;
 
   bottomSection.innerHTML+=sendReply;
-
   replyInput.value='';
-});
+}

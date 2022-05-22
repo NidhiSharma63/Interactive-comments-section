@@ -85,20 +85,14 @@ body{
     }
 
     .col2{
-        font-size: 1.5rem;
-        color: var(--Grayish-Blue);
-        letter-spacing: .1rem;
-        padding-top: 1rem;
-        line-height: 2.4rem;
+        @include font-size-1;
         min-height: 8rem;
 
         .reply-to{
             @include reply-text;
             font-size: 1.5rem;
             padding: 0rem;
-            span{
-                padding: 0rem
-            }
+            display: inline;
         }
     }
 }
@@ -189,4 +183,8 @@ body{
     resize: none;
     border:1px solid var(--Light-grayish-blue);
     border-radius: .5rem;
+}
+
+.reply-text{
+    @include font-size-1;
 }
