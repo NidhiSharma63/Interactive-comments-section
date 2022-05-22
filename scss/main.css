@@ -337,4 +337,43 @@ body {
   padding-top: 1rem;
   line-height: 2.4rem;
 }
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    width: 70%;
+  }
+  .reply-input {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+    width: 80%;
+  }
+  .reply-input {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .wrapper {
+    width: 90%;
+  }
+  .reply-input {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  html {
+    font-size: 54.5%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  html {
+    font-size: 47.5%;
+  }
+}
 /*# sourceMappingURL=main.css.map */

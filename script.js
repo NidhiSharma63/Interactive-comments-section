@@ -149,7 +149,7 @@ let addingReplyDiv = (replyBtn) =>{
 
       const commentDiv = (e.target.parentElement.parentElement.parentElement.parentElement.parentElement);
       const replyDiv = (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.nextElementSibling);
-      console.log(replyDiv)
+
 
       const commentDivCol2 = (e.target.parentElement.parentElement.parentElement.nextElementSibling);
       replyDiv.style.width='100%';
@@ -172,11 +172,9 @@ let addingReplyDiv = (replyBtn) =>{
 
       sendBtn.addEventListener('click',(e)=>{
         const textareaTag = replyDiv.querySelector("#reply-input");
-        inputTag.style.border='none';
-        const pTag = document.createElement('p');
-        pTag.classList.add('reply-text')
-        pTag.innerHTML=`${textareaTag.value}`;
-        inputTag.replaceChild(pTag,textareaTag);
+        replyDiv.innerHTML='';
+        replyDiv.style.padding='0rem';
+        sendBtnEvent(replyDiv,textareaTag.value);
       });
       
       // remove div on click on col2
@@ -268,12 +266,13 @@ deleteComment();
 
   // adding reply
 sendBtn.addEventListener("click",()=>{
-  sendBtnEvent();
+  sendBtnEvent(bottomSection,replyInput.value);
+
 });
 
-let sendBtnEvent = () =>{
+let sendBtnEvent = (section,inputValue) =>{
   const userProfileImage = replyInput.parentElement.previousElementSibling.getElementsByTagName('img')[0].src;
-  if(replyInput.value==='') return;
+  if(inputValue==='') return;
   const sendReply =  
   `
   <div class="comment" id="">
@@ -316,7 +315,7 @@ let sendBtnEvent = () =>{
     <div class="col2">
         <div class="comment-text-content">
           <p>
-          ${replyInput.value}
+          ${inputValue}
           </p>
         </div>
       </div>
@@ -326,6 +325,17 @@ let sendBtnEvent = () =>{
 </div>
   `;
 
-  bottomSection.innerHTML+=sendReply;
+  // const DeleteBtn = document.querySelector(".delete") ;
+  // console.log(DeleteBtn);
+  // deleteReply(DeleteBtn);
+
+  section.innerHTML+=sendReply;
   replyInput.value='';
+}
+
+// delte btn
+const deleteReply = (DeleteBtn) =>{
+  DeleteBtn.addEventListener("click",(e)=>{
+    console.log('i m clicked')
+    })
 }
