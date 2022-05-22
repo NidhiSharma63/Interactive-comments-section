@@ -27,6 +27,7 @@ li {
   --Soft-Red: hsl(358, 79%, 66%);
   --Light-grayish-blue: hsl(239, 57%, 85%);
   --Pale-red: hsl(357, 100%, 86%);
+  --green: hsl(120, 76%, 37%);
   --Dark-blue: hsl(212, 24%, 26%);
   --Grayish-Blue: hsl(211, 10%, 45%);
   --Light-gray: hsl(223, 19%, 93%);
@@ -96,7 +97,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 19rem;
+  max-height: 19rem;
 }
 
 .vote-wrapper {
@@ -121,6 +122,7 @@ body {
 }
 
 .vote-wrapper p {
+  padding: 3rem 0rem;
   font-size: 1.8rem;
 }
 
@@ -180,14 +182,20 @@ body {
   padding-left: 1rem;
 }
 
-.comment-text .col1 .reply-btn p {
+.comment-text .col1 .user-info .timing {
+  font-weight: var(--fw-md);
+}
+
+.comment-text .col1 .reply-btn p,
+.comment-text .col1 .reply-to {
   font-size: 1.8rem;
   font-weight: var(--fw-bl);
   color: var(--Moderate-blue);
   cursor: pointer;
 }
 
-.comment-text .col1 .reply-btn p span {
+.comment-text .col1 .reply-btn p span,
+.comment-text .col1 .reply-to span {
   padding-left: 1rem;
 }
 
@@ -197,42 +205,115 @@ body {
   letter-spacing: .1rem;
   padding-top: 1rem;
   line-height: 2.4rem;
+  min-height: 8rem;
 }
 
-.reply-btn-container {
+.comment-text .col2 .reply-to {
+  font-size: 1.8rem;
+  font-weight: var(--fw-bl);
+  color: var(--Moderate-blue);
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0rem;
+}
+
+.comment-text .col2 .reply-to span {
+  padding-left: 1rem;
+}
+
+.comment-text .col2 .reply-to span {
+  padding: 0rem;
+}
+
+.edit-delete-btn-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 1.7rem;
   font-weight: 800;
 }
 
-.reply-btn-container span {
+.edit-delete-btn-container span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 0rem 1rem;
 }
 
-.reply-btn-container span p.delete {
+.edit-delete-btn-container span p.delete {
   color: var(--Soft-Red);
   cursor: pointer;
 }
 
-.reply-btn-container span p.edit {
+.edit-delete-btn-container span p.edit {
   color: var(--Moderate-blue);
   cursor: pointer;
 }
 
-.reply-btn-container span img {
+.edit-delete-btn-container span p.save {
+  color: var(--green);
+}
+
+.edit-delete-btn-container span img {
   padding-right: 1rem;
   width: 2.8rem;
+}
+
+.reply-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 58%;
+  margin: auto;
+  padding: 2rem;
+  margin-top: 1rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: var(--White);
+  border-radius: .7rem;
+}
+
+.reply-input .input {
+  border: 1px solid var(--Light-grayish-blue);
+  width: 77%;
+  border-radius: 0.6rem;
+  padding: .3rem 1rem;
+  margin: 0rem 1rem;
+}
+
+.reply-input .input textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;
+  border-radius: 0.6rem;
+  font-size: 1.5rem;
+  color: var(--Grayish-Blue);
+  letter-spacing: .075rem;
+}
+
+.reply-input .input textarea:focus {
+  outline: none;
+}
+
+.reply-input #send-btn {
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 2.5rem;
+  color: white;
+  background: blue;
+  cursor: pointer;
+  border-radius: 0.5rem;
 }
 
 .display-none {

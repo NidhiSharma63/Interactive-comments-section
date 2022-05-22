@@ -27,7 +27,7 @@ body{
     background-color: var(--White);
     border-radius: .7rem;
     @include flex-space-between;
-    height: 19rem;
+    max-height: 19rem;
 }
 .vote-wrapper{
     padding: 1rem;
@@ -39,8 +39,9 @@ body{
     img{
         cursor: pointer;
     }
-
+    
     p{
+        padding: 3rem 0rem;
         font-size: 1.8rem;
     }
 }
@@ -71,16 +72,15 @@ body{
                 color: var(--Dark-blue);
                 padding-left: 1rem;
               }
+
+              .timing{
+                  font-weight: var(--fw-md);
+              }
         }
 
-        .reply-btn p{
-            font-size: 1.8rem;
-            font-weight: var(--fw-bl);
-            color: var(--Moderate-blue);
-            cursor: pointer;
-            span{
-                padding-left: 1rem;
-            }
+        .reply-btn p,
+        .reply-to{
+            @include reply-text;
         }
     }
 
@@ -90,18 +90,25 @@ body{
         letter-spacing: .1rem;
         padding-top: 1rem;
         line-height: 2.4rem;
+        min-height: 8rem;
+
+        .reply-to{
+            @include reply-text;
+            font-size: 1.5rem;
+            padding: 0rem;
+            span{
+                padding: 0rem
+            }
+        }
     }
 }
 
 // edit-btns
 
-.reply-btn-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.edit-delete-btn-container{
+    @include flex-center;
     font-size: 1.7rem;
     font-weight: 800;
-
     span{
         display: flex;
         padding: 0rem 1rem;
@@ -114,11 +121,56 @@ body{
             color: var(--Moderate-blue);
             cursor: pointer;
         }
-
+        p.save{
+            color:var(--green)
+        }
         img{
             padding-right: 1rem;
             width: 2.8rem;
         }
+    }
+}
+
+.reply-input{
+   @include flex-space-between;
+    width: 58%;
+    margin: auto;
+    padding:2rem;
+    margin-top: 1rem;
+    align-items: flex-start;
+    background-color: var(--White);
+    border-radius: .7rem;
+
+
+    .input{
+        border: 1px solid var(--Light-grayish-blue);
+        width: 77%;
+        border-radius: 0.6rem;
+        padding: .3rem 1rem;
+        margin: 0rem 1rem;
+        textarea{
+            width: 100%;
+            height: 100%;
+            resize: none;
+            border: none;
+            border-radius: 0.6rem;
+            font-size: 1.5rem;
+            color: var(--Grayish-Blue);
+            letter-spacing: .075rem;
+
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    #send-btn{
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 2.5rem;
+        color: white;
+        background: blue;
+        cursor: pointer;
+        border-radius: 0.5rem;
     }
 }
 

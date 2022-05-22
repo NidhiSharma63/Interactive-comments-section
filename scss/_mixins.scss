@@ -13,4 +13,12 @@
     @include flex;
     justify-content: space-between;
 }
-// @mixin 
+@mixin reply-text{
+    font-size: 1.8rem;
+    font-weight: var(--fw-bl);
+    color: var(--Moderate-blue);
+    cursor: pointer;
+    span{
+        padding-left: 1rem;
+    }
+}
