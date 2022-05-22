@@ -39,7 +39,7 @@ const displayData = async () => {
                 </div>
                 <!-- user-info-end -->
                 <div class="reply-btn">
-                  <p><img src="/images/icon-reply.svg" alt="icon"><span>Reply</span></p>
+                  <p><img src="./images/icon-reply.svg" alt="icon"><span>Reply</span></p>
                 </div>
               </div>
               <!-- col-1 end -->
