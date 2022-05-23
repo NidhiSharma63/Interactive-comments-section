@@ -14,7 +14,25 @@ const Fetchdata = async () => {
 const displayData = async () => {
   const data = await Fetchdata();
   data.comments.forEach(element => {
-    const output = `
+    insertTemplate(element,wrapper);
+
+    element.replies.forEach(element => {
+      insertTemplate(element,midSection);
+    }); 
+    
+    const replyBtn = document.querySelectorAll(".reply-btn");
+    const plusIcon = document.querySelectorAll(".plus-icon");
+    const minusIcon = document.querySelectorAll(".minus-icon");
+
+    incrementVote(plusIcon);
+    decrementVote(minusIcon);
+    addingReplyDiv(replyBtn);
+  });
+}
+
+
+let insertTemplate = (element,container)=>{
+  const output = `
             <div class="comment" id="${element.id}">
             <!-- vote-wrapper -->
             <div class="vote-wrapper">
@@ -59,66 +77,8 @@ const displayData = async () => {
           </div>
           <div class='reply-input display-none'></div>
     `
-
-    element.replies.forEach(element => {
-      const reply = `
-      <div class="comment" id="${element.id}">
-        <!-- vote-wrapper -->
-        <div class="vote-wrapper">
-         <img class="plus-icon" src="./images/icon-plus.svg" alt="plus">
-          <p class="vote-count">${element.score}</p>
-          <img class="minus-icon" src="./images/icon-minus.svg" alt="minus">
-        </div>
-          <!-- vote-wrapper end -->
-          <!-- comment-text -->
-        <div class="comment-text">
-          <!-- col-1 -->
-          <div class="col1">
-            <!-- user-info -->
-            <div class="user-info">
-              <div class="user-profile">
-                <img src="${element.user.image.png}" alt="profile">
-              </div>
-              <p class="user-name">
-              ${element.user.username}
-              </p>
-              <p class="user-name timing">
-              ${element.createdAt}
-              </p>
-            </div>
-            <!-- user-info-end -->
-              <div class="reply-btn">
-                <p><img class="reply-icon" src="./images/icon-reply.svg" alt="icon"><span>Reply</span></p>
-              </div>
-          </div>
-              <!-- col-1 end -->
-              <!-- col-2 -->
-          <div class="col2">
-              <div class="comment-text-content">
-                <p>
-                <span class="reply-to">@${element.replyingTo}</span> ${element.content}
-                </p>
-              </div>
-            </div>
-              <!-- col-2 end -->
-        </div>
-          <!-- comment-text end -->
-      </div>
-      <div class='reply-input display-none'></div>
-      `
-      midSection.innerHTML += reply;
-    }); 
-    wrapper.innerHTML += output;
-    const replyBtn = document.querySelectorAll(".reply-btn");
-    const plusIcon = document.querySelectorAll(".plus-icon");
-    const minusIcon = document.querySelectorAll(".minus-icon");
-
-    incrementVote(plusIcon);
-    decrementVote(minusIcon);
-    addingReplyDiv(replyBtn);
-  });
+    container.innerHTML += output;
 }
-
 // increment vote
 let incrementVote = (plusIcon) =>{
   Array.from(plusIcon).forEach(element => {
