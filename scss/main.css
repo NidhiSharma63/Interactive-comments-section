@@ -186,6 +186,10 @@ body {
   font-weight: var(--fw-md);
 }
 
+.comment-text .col1 .reply-btn:hover {
+  opacity: .5;
+}
+
 .comment-text .col1 .reply-btn p,
 .comment-text .col1 .reply-to {
   font-size: 1.8rem;

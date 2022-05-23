@@ -77,7 +77,9 @@ body{
                   font-weight: var(--fw-md);
               }
         }
-
+        .reply-btn:hover{
+            opacity: .5;
+        }
         .reply-btn p,
         .reply-to{
             @include reply-text;
