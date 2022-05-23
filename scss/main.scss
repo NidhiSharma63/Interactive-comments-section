@@ -127,7 +127,7 @@ body{
     }
 }
 
-.reply-input{
+.reply-comment{
    @include flex-space-between;
     width: 58%;
     margin: auto;
@@ -159,19 +159,15 @@ body{
             }
         }
     }
-    #send-btn{
+    .send-btn{
         border: none;
         padding: 1rem 2rem;
-        font-size: 2.5rem;
+        font-size: 2.1rem;
         color: white;
         background: blue;
         cursor: pointer;
         border-radius: 0.5rem;
     }
-}
-
-.display-none{
-    display: none;
 }
 
 .textarea{
@@ -195,7 +191,7 @@ body{
     .wrapper{
         width: 70%;
     }
-    .reply-input{
+    .reply-comment{
         width: 70%;
     }
 }
@@ -204,7 +200,7 @@ body{
     .wrapper{
         width: 80%;
     }
-    .reply-input{
+    .reply-comment{
         width: 80%;
     }
 }
@@ -213,7 +209,7 @@ body{
     .wrapper{
         width: 90%;
     }
-    .reply-input{
+    .reply-comment{
         width: 90%;
     }
 }
