@@ -137,7 +137,7 @@ let addingReplyDiv = (replyBtn) =>{
       
       sendBtn.addEventListener('click',()=>{
         const replyComment = insertReplyDiv.querySelector('.reply-comment');
-        sendBtnEvent(insertReplyDiv,replyInput.value)
+        insertReplyComment(insertReplyDiv,replyInput.value)
         insertReplyDiv.children[0].remove();
         insertReplyDiv.classList.remove('comment');
         const deleteBtn = insertReplyDiv.querySelector('.delete');
@@ -161,11 +161,16 @@ let addingReplyDiv = (replyBtn) =>{
           newTextArea.value = `${replyValue}`;
           parentCol2.replaceChild(newTextArea,col2);
 
-          SaveBtn.addEventListener('click',()=>{
+          SaveBtn.addEventListener('click',(e)=>{
+            e.currentTarget.previousElementSibling.style.display='flex';
+            e.currentTarget.classList.add('display-none');
+            let p = document.createElement('p');
+            p.innerHTML=`${newTextArea.value}`;
+            col2.appendChild(p);
             parentCol2.replaceChild(col2,newTextArea);
           })
         });
-        // delete commenr reply
+        // delete commenrt reply
         deleteBtn.addEventListener('click',(e)=>{
           insertReplyDiv.children[0].remove();
         });
@@ -253,11 +258,11 @@ deleteComment();
 
   // adding reply
 sendBtn.addEventListener("click",()=>{
-  sendBtnEvent(bottomSection,replyInput.value);
+  insertReplyComment(bottomSection,replyInput.value);
 
 });
 
-let sendBtnEvent = (section,inputValue) =>{
+let insertReplyComment = (section,inputValue) =>{
   if(inputValue==='') return;
   const sendReply =  
   `
@@ -313,45 +318,6 @@ let sendBtnEvent = (section,inputValue) =>{
 
   section.innerHTML+=sendReply;
   replyInput.value='';
-}
-
-// delte btn
-const deleteReply = (DeleteBtn) =>{
-  DeleteBtn.addEventListener("click",(e)=>{
-    console.log('i m clicked')
-    })
-}
+};
 
 
-
-
-
-// const commentDiv = (e.target.parentElement.parentElement.parentElement.parentElement.parentElement);
-// const replyDiv = (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.nextElementSibling);
-
-
-// const commentDivCol2 = (e.target.parentElement.parentElement.parentElement.nextElementSibling);
-// replyDiv.style.width='100%';
-// replyDiv.style.display='flex';
-// replyDiv.innerHTML=
-// `
-// <div class="profile-img">
-//   <img src="./images/avatars/image-juliusomo.webp" alt="profile">
-// </div>
-// <div class="input">
-//   <textarea name="" id="reply-input" cols="30" rows="5"></textarea>
-// </div>
-// <button id="send-btn">
-//   send
-// </button>
-// `
-
-// const sendBtn = replyDiv.querySelector("#send-btn");
-// const inputTag = replyDiv.querySelector(".input");
-
-// sendBtn.addEventListener('click',(e)=>{
-//   const textareaTag = replyDiv.querySelector("#reply-input");
-//   replyDiv.innerHTML='';
-//   replyDiv.style.padding='0rem';
-//   sendBtnEvent(replyDiv,textareaTag.value);
-// });

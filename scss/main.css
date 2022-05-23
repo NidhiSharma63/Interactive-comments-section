@@ -267,6 +267,7 @@ body {
 
 .edit-delete-btn-container span p.save {
   color: var(--green);
+  cursor: pointer;
 }
 
 .edit-delete-btn-container span img {
