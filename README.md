@@ -2,7 +2,7 @@
 
 ![Design preview for the Interactive comments section coding challenge](./design/desktop-preview.jpg)
 
-## Welcome! 👋
+## hey Welcome! 👋
 
 - i have completed this challenge given by front-end mentor by using html, css, js.
 - checkout this https://nidhisharma63.github.io/Interactive-comments-section/.
